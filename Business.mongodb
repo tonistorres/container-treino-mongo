@@ -37,4 +37,28 @@ use('business');
 
 // db.restaurants.find( {rating:{$exists: false, $not:{$lte:5}}},{name:true, rating:true, _id:false})
 
-// db.restaurants.find({$or:[{rating:{$exists:true}},{rating:{$exists:false}}], rating:{$not:{$lte:5}}},{rating:true, _id:false})
+// db.restaurants.find({$or:[{rating:{$exists:true}},{rating:{$exists:false}}], rating:{$not:{$lte:5}}},{rating:true, _id:false}).count()
+
+// QUESTÃO 6:Selecione e faça a contagem dos restaurantes em que a avaliação seja maior ou igual a 6, ou restaurantes localizados no bairro Brooklyn.
+
+// db.restaurants.find({rating:{$gte: 6}},{_id:false, rating:true})
+// db.restaurants.find({borough:"Brooklyn"},{_id:false, rating:true, borough:true})
+// db.restaurants.find({$or:[{rating:{$gte: 6}},{borough:"Brooklyn"}]},{_id:false, rating:true,borough:true}).count();
+
+// QUESTÃO 7: Selecione e faça a contagem dos restaurantes localizados nos bairros Queens, Staten Island e Brooklyn e possuem avaliação maior que 4.
+
+// db.restaurants.find({borough:{$in:["Queens","Staten Island","Brooklyn"]}},{_id:false,rating:true,borough:true})
+// db.restaurants.find({rating:{$gt: 4 }},{_id:false, rating:true})
+
+
+// db.restaurants.find({
+
+//  $and: [
+//       {borough:{$in:["Queens","Staten Island","Brooklyn"]}},
+//       {rating:{$gt: 4 }}
+//    ]
+// },{_id:false, rating:true, borough:true}
+
+// ).count()
+
+
