@@ -1,0 +1,48 @@
+// setando um banco de dados para trabalho
+use('users');
+
+// Excluindo banco de Dados 
+  db.dropDatabase();
+
+// Excluindo collection
+// db.login.drop();
+
+// criando uma collection 
+// db.createCollection( "login", { collation: { locale: "pt" } } );
+
+// inserindo um arquivo no banco de dados 
+// db.login.insertOne({
+//     user:"Relson Torres",
+//     senha:"xablau2"
+// });
+
+
+
+/*inserindo vários registros numa collection
+desabilitando a ordenação padrão, ou seja, no 
+momento queo arquivo for gravado no banco caso 
+algum resgistro dê ruim ele pula o arquivo com problemas
+e continua a gravação do proximo em diate e assim sucessivamente*/
+// db.login.insertMany(
+//     [
+//  {
+//     user:"João Gomes",
+//     senha:"xablau7"
+// },
+// {
+//     user:"Maria Balbino",
+//     senha:"xablau9"
+// },
+// {
+//     user:"Marília Mendonça",
+//     senha:"xablau0"
+// }
+//     ], {ordered:false}
+    
+//     );
+
+
+// listando uma collection específica
+//  db.login.find().pretty();
+
+

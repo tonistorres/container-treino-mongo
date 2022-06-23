@@ -1,0 +1,40 @@
+use('business');
+// contando o número de documentos inseridos na collection restaurants
+// db.restaurants.countDocuments({})
+
+
+// QUESTÃO 1: Selecione e faça a contagem dos restaurantes presentes nos bairros Queens, Staten Island e Bronx. (utilizando o atributo borough)
+
+// Passo Solução 1: Comando tras todos os documentos que contém os valores passados no array
+// db.restaurants.find({borough: { $in: ["Queens", "Staten Island","Bronx."]}},{_id:false, borough:true});
+
+// Passo Solução 2: comando para fazer a contagem desses documentos filtrados 
+// db.restaurants.countDocuments({borough: { $in: ["Queens", "Staten Island","Bronx."]}})
+
+// QUESTÃO 2: Selecione e faça a contagem dos restaurantes que não possuem culinária do tipo American. (utilizando o atributo cuisine)
+
+//QUESTÃO 2: Selecione e faça a contagem dos restaurantes que não possuem culinária do tipo American. (utilizando o atributo cuisine)
+// db.restaurants.find({cuisine:{$nin:["American"]}}).count()
+// db.restaurants.countDocuments({cuisine:{$nin:["American"]}})
+
+// QUESTÃO 3: Selecione e faça a contagem dos restaurantes que possuem avaliação maior ou igual a 8.
+
+// db.restaurants.find({rating:{$gt: 8}}).count();
+// db.restaurants.countDocuments({rating:{$gt: 8}})
+
+// QUESTÃO 4: Selecione e faça a contagem dos restaurantes que possuem avaliação menor que 4.
+// db.restaurants.find({rating:{ $lt: 4 }},{_id:false, rating:true}).count()
+
+// db.restaurants.countDocuments({rating:{ $lt: 4 }})
+
+// QUESTÃO 5: Selecione e faça a contagem dos restaurantes que não possuem as avaliações 5, 6 e 7.
+// db.restaurants.find({rating:{$nin:[5,6,7]}},{_id:false, rating:true}).count()
+// db.restaurants.countDocuments({rating:{$nin:[5,6,7]}})
+
+// QUESTÃO 6: Selecione e faça a contagem dos restaurantes que não possuem avaliação menor ou igual a 5, essa consulta também deve retornar restaurantes que não possuem o campo de avaliação.
+
+// db.restaurants.find( {rating:{$exists: true, $not:{$lte:5}}},{name:true, rating:true, _id:false})
+
+// db.restaurants.find( {rating:{$exists: false, $not:{$lte:5}}},{name:true, rating:true, _id:false})
+
+// db.restaurants.find({$or:[{rating:{$exists:true}},{rating:{$exists:false}}], rating:{$not:{$lte:5}}},{rating:true, _id:false})

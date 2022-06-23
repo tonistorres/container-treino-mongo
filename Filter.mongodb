@@ -1,0 +1,18 @@
+
+use('filter');
+
+db.listFrut.drop()
+// criando uma collection 
+db.createCollection( "listFrut", { collation: { locale: "pt" } } );
+
+
+db.listFrut.insertMany([
+{ "_id": "apples", "qty": 5 },
+{ "_id": "bananas", "qty": 7 },
+{ "_id": "oranges", "qty": { "in stock": 8, "ordered": 12 } },
+{ "_id": "avocados", "qty": "fourteen" },
+])
+
+// db.listFrut.find().count()
+/*A operação abaixo usa o operador de comparação $gt( greater than, maior que, >) para retornar os documentos em que o valor do atributo qty seja maior do que 4:*/ 
+ db.listFrut.find( { qty: { $gt: 4 } } )

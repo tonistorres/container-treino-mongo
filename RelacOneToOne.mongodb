@@ -1,0 +1,30 @@
+use('users');
+
+
+// {
+//     _id:"joe",
+//     name:"Joe Bookreader"
+// }
+
+// {
+    // user_id:"joe",
+    // street:"123 Fake Street",
+    // city:"Faketon",
+    // state:"MA",
+    // zip:"12345"
+// } 
+
+db.person.insertOne(
+{
+    name:"Joe Bookreader",
+    address:{
+    street:"123 Fake Street",
+    city:"Faketon",
+    state:"MA",
+    zip:"12345"
+
+    }
+}
+);
+
+db.person.find();

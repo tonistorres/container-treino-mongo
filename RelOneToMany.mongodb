@@ -1,0 +1,81 @@
+use('users');
+
+
+// {
+//     _id:"tonis",
+//     name:"Tonis Torres"
+// }
+
+// {
+//     street:"Rua Dico Veiga",
+//     city:"Alto Alegre do Maranhão",
+//     state:"MA",
+//     zip:"65.413-000"
+// } 
+
+// {
+//     street:"Vile I",
+//     city:"Alto Alegre do Maranhão",
+//     state:"MA",
+//     zip:"65.413-000"
+// } 
+db.pessoas.drop();
+
+db.pessoas.insertOne(
+{
+     name:"Tonis Torres",
+    address:
+    [        
+        {
+            street:"Rua Dico Veiga",
+            city:"Alto Alegre do Maranhão",
+            state:"MA",
+            zip:"65.413-000"
+        }, 
+        {
+            street:"Vile I",
+            city:"Alto Alegre do Maranhão",
+            state:"MA",
+            zip:"65.413-000"
+        }    
+    ]
+}
+);
+
+db.pessoas.insertMany([
+{
+     name:"Sandra Torres",
+    address:
+    [        
+        {
+            street:"Comercio",
+            city:"Salvador",
+            state:"BA",
+            zip:""
+        }    
+    ]
+},
+{
+    name:"Alexandre Tores",
+    address:
+    [        
+        {
+            street:"Vile I",
+            city:"Alto Alegre do Maranhão",
+            state:"MA",
+            zip:"65.413-000"
+        },
+         {
+            street:"Av. Rodoviaria",
+            city:"Alto Alegre do Maranhão",
+            state:"MA",
+            zip:"65.413-000"
+        }   
+    ]
+}
+
+]);
+
+// db.pessoas.find();
+
+db.pessoas.find({'address.state':"BA"})

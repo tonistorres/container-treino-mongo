@@ -1,0 +1,55 @@
+// setando um banco de dados para trabalho
+use('users');
+
+// Excluindo banco de Dados 
+  db.dropDatabase();
+
+// Excluindo collection
+// db.endereco.drop();
+
+// criando uma collection 
+// db.createCollection( "endereco", { collation: { locale: "pt" } } );
+
+// inserindo um arquivo no banco de dados 
+// db.endereco.insertOne(
+//    {
+//   rua: "Satubal",
+//   numero: "s/n",
+//   bairro: "centro",
+//   cidade: "Alto Alegre do Maranhão"
+// },
+// )
+
+
+/*inserindo vários registros numa collection
+desabilitando a ordenação padrão, ou seja, no 
+momento queo arquivo for gravado no banco caso 
+algum resgistro dê ruim ele pula o arquivo com problemas
+e continua a gravação do proximo em diate e assim sucessivamente*/
+// db.endereco.insertMany(
+//     [
+//  {
+//   rua: "Mocambo",
+//   numero: "s/n",
+//   bairro: "mocambo",
+//   cidade: "Alto Alegre do Maranhão"
+// },
+//  {
+//   rua: "Vile I",
+//   numero: "s/n",
+//   bairro: "mocambo",
+//   cidade: "Alto Alegre do Maranhão"
+// },
+// {
+//   rua: "Vile II",
+//   numero: "s/n",
+//   bairro: "mocambo",
+//   cidade: "Alto Alegre do Maranhão"
+// },
+
+//     ], {ordered:false}
+    
+//     );
+
+// lista todos os documentos da collections
+  // db.endereco.find();

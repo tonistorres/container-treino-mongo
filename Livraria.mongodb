@@ -1,0 +1,5 @@
+use('business');
+db.createCollection("restaurants",{ collation: { locale: "pt" }})
+db.books.find();
+
+
