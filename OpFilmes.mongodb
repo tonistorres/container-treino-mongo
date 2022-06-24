@@ -1,0 +1,33 @@
+//***************************** */
+//Copiando para container docker /
+//**************************** */ 
+//docker cp nome-do-arquivo.json <nome-do-contêiner-ou-id>:/tmp/nome-do-arquivo.json
+//**************************** **************************/
+// Executando a import do arquivo para o banco de dados
+//**************************************************** */
+//docker exec <nome-do-contêiner-ou-id> mongoimport -d <nome-do-banco> -c <nome-da-coleção> --file /tmp/nome-do-arquivo.json
+
+// setando o banco de dados
+use('cinema');
+
+// Excluindo Banco de Dados
+// db.dropDatabase()
+
+// Excluindo collection
+//  db.hero.drop();
+
+// criando uma collection 
+//  db.createCollection( "hero", { collation: { locale: "pt" } } );
+
+// Exercício 1: Inspecione um documento para que você se familiarize com a estrutura. Entenda os atributos e os níveis existentes.
+//  db.hero.findOne()
+
+//Exercício 2: Selecione todos os super-heróis com menos de 1.80m de altura. Lembre-se de que essa informação está em centímetros.
+// db.hero.find({"aspects.height":{$lt:180}}).count()
+
+// Exercício 3: Retorne o total de super-heróis menores que 1.80m.
+// db.hero.countDocuments({"aspects.height":{$lt:180}})
+
+//Exercício 4: Retorne o total de super-heróis com até 1.80m.
+// db.hero.find({"aspects.height":{$lte: 180}})
+db.hero.countDocuments({"aspects.height":{$lte: 180}})
